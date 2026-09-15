@@ -1,7 +1,7 @@
 import {test,expect, Locator} from "@playwright/test"
 test("Verify Playwright Locators",async({page})=>{
     await page.goto("https://demo.nopcommerce.com/");
-    await page.waitForTimeout(5000)
+    await page.waitForTimeout(50000)
     const logo:Locator=await page.locator("//img[@alt='nopCommerce demo store']");
     await expect(logo).toBeVisible();
     //const text:Locator=page.getByText("Welcome to our store");
