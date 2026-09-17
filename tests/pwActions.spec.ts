@@ -11,16 +11,16 @@ test('Text Input Actions', async ({page}) => {
     const maxLength: string | null = await textBox.getAttribute("maxlength");
     expect(maxLength).toBe("15");
 
-    await textBox.fill("Rohit");
+    await textBox.fill("Rohit Sasanala");
 
     const enteredValue: string=await textBox.inputValue();
     console.log("Input Value of the FirstName:",enteredValue);
-    expect(enteredValue).toBe("Rohit");
+    expect(enteredValue).toBe("Rohit Sasanala");
 
     await page.waitForTimeout(3000);
 });
 
-test('Radio Button Actions', async ({page}) => {
+test.only('Radio Button Actions', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
 
@@ -31,16 +31,18 @@ test('Radio Button Actions', async ({page}) => {
     await expect(maleRadio).toBeEnabled();
 
     expect(await maleRadio.isChecked()).toBe(false);
+    await page.waitForTimeout(3000);
 
     await maleRadio.check();
     expect(await maleRadio.isChecked()).toBe(true);
     await expect(maleRadio).toBeChecked();
 
-    
     await page.waitForTimeout(3000);
+
+
 });
 
-test.only('Checkbox Actions', async ({page}) => {
+test('Checkbox Actions', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
     // Selecting a single checkbox and assert it is checked

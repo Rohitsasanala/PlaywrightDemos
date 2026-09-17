@@ -13,7 +13,10 @@ test("Verify CSS Locators",async({page})=>{
   //await page.locator("input.search-box-text").fill("Pants");
   
   //tag[attribute='value']
-  await page.locator("input[name='q']").fill("Shirts");
+  //await page.locator("input[name='q']").fill("Shirts");
 
+  //tag.class[attribute='value']
+  await page.locator("input.search-box-text[value='Search store']").fill("Pants");
+  await page.waitForTimeout(3000);
 
 })
