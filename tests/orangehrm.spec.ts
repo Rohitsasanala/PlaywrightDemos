@@ -9,6 +9,9 @@ test("Verify Playwright Locators - OrangeHRM", async ({ page }) => {
   
   const logo: Locator = page.getByAltText("company-branding");
   await expect(logo).toBeVisible();
+  await page.screenshot({
+        path: 'screenshots/homepage.png'
+    });
 
   // 3. getByRole heading - login card title
   // (getByText("Login") alone fails here - it matches BOTH the <h5> heading

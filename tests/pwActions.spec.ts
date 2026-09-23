@@ -5,11 +5,11 @@ test('Text Input Actions', async ({page}) => {
 
     const textBox: Locator = page.locator('#name');
 
-    await expect(textBox).toBeVisible();
+    await expect(textBox).toBeVisible();// expect with element need await
     await expect(textBox).toBeEnabled();
 
     const maxLength: string | null = await textBox.getAttribute("maxlength");
-    expect(maxLength).toBe("15");
+    expect(maxLength).toBe("15");// expect with value need not await
 
     await textBox.fill("Rohit Sasanala");
 
@@ -20,7 +20,7 @@ test('Text Input Actions', async ({page}) => {
     await page.waitForTimeout(3000);
 });
 
-test.only('Radio Button Actions', async ({page}) => {
+test('Radio Button Actions', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
 
@@ -42,7 +42,7 @@ test.only('Radio Button Actions', async ({page}) => {
 
 });
 
-test('Checkbox Actions', async ({page}) => {
+test.only('Checkbox Actions', async ({page}) => {
 
     await page.goto('https://testautomationpractice.blogspot.com/');
     // Selecting a single checkbox and assert it is checked
